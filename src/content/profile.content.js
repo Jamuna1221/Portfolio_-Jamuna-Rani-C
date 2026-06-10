@@ -1,0 +1,36 @@
+export const profileData = {
+  name: "Jamuna Rani C",
+  title: "Computer Science Engineering Student",
+  subtitle: "Full-Stack Developer",
+  bio: "Computer Science Engineering student with hands-on experience in full-stack web development. Passionate about solving real-world problems through practical project development.",
+  email: "jamunaranic1221@gmail.com",
+  phone: "+91 8608737147",
+  location: "Tamil Nadu, India",
+  collegeEmail: "2312092@nec.edu.in",
+  github: "https://github.com/Jamuna1221",
+  linkedin: "https://www.linkedin.com/in/jamuna-rani-c-a4033931b/",
+  languages: ["English", "Tamil", "Malayalam"],
+  education: [
+    {
+      level: "Graduation",
+      degree: "B.E. Computer Science and Engineering",
+      institution: "National Engineering College, Kovilpatti",
+      year: "2027",
+      score: "CGPA: 8.48 (Upto Fifth Semester)",
+    },
+    {
+      level: "Class XII",
+      degree: "Higher Secondary",
+      institution: "Government Girls Higher Secondary School, Kovilpatti",
+      year: "2022",
+      score: "Percentage: 87.3%",
+    },
+    {
+      level: "Class X",
+      degree: "Secondary",
+      institution: "KR Saradha Government Higher Secondary School, Nalattinputhur",
+      year: "2020",
+      score: "Percentage: 88.6%",
+    },
+  ],
+};
