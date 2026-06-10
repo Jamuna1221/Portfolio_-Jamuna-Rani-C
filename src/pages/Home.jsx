@@ -157,10 +157,7 @@ const Home = () => {
               </div>
 
               {/* Floating Achievement Badge */}
-              <div className="absolute -bottom-6 -right-6 px-6 py-4 bg-white/90 backdrop-blur-md border border-slate-200/60 rounded-2xl shadow-xl">
-                <p className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">10+</p>
-                <p className="text-sm font-medium text-slate-600">Projects Done</p>
-              </div>
+              
             </div>
           </div>
         </div>
