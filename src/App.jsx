@@ -1,9 +1,10 @@
-import React from 'react';
+//import React from 'react';
 import Header from './components/layout/Header';
 import Home from './pages/Home';
 import Footer from './components/layout/Footer';
 import { profileData } from './content/profile.content';
-import { skillsData } from './content/skills.content';
+import Skills from './components/sections/Skills';
+import Certifications from './components/sections/Certifications';
 import { projectsData } from './content/projects.content';
 import { experienceData } from './content/experience.content';
 
@@ -132,57 +133,8 @@ function App() {
           </div>
         </div>
       </section>
-
-      {/* Skills Section */}
-      <section id="skills" className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-24">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Skills & Certifications
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-lg font-semibold text-slate-700 mb-4">Programming Languages</h3>
-                <div className="flex flex-wrap gap-3">
-                  {skillsData.programming.map((s) => (
-                    <span key={s} className="px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm font-medium text-slate-700 shadow-sm hover:shadow-md hover:border-blue-300 transition-all">{s}</span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-slate-700 mb-4">Web & Frameworks</h3>
-                <div className="flex flex-wrap gap-3">
-                  {skillsData.web.map((s) => (
-                    <span key={s} className="px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm font-medium text-slate-700 shadow-sm hover:shadow-md hover:border-blue-300 transition-all">{s}</span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-slate-700 mb-4">Tools & Tech</h3>
-                <div className="flex flex-wrap gap-3">
-                  {skillsData.tools.map((s) => (
-                    <span key={s} className="px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm font-medium text-slate-700 shadow-sm hover:shadow-md hover:border-purple-300 transition-all">{s}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-slate-700 mb-4">Certifications</h3>
-              <div className="space-y-3">
-                {skillsData.certifications.map((cert, i) => (
-                  <div key={i} className="flex items-center gap-4 bg-white border border-slate-200/60 rounded-xl px-5 py-4 shadow-sm hover:shadow-md transition-all">
-                    <span className="text-2xl">🏆</span>
-                    <div>
-                      <p className="font-semibold text-slate-800 text-sm">{cert.name}</p>
-                      <p className="text-xs text-slate-500">{cert.issuer}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Skills />
+      <Certifications />
 
       {/* Contact Section */}
       <section id="contact" className="bg-white py-24">
