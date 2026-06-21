@@ -1,4 +1,5 @@
 //import React from 'react';
+import { motion } from 'framer-motion';
 import Header from './components/layout/Header';
 import Home from './pages/Home';
 import Footer from './components/layout/Footer';
@@ -11,6 +12,23 @@ import contactPhoto from './assets/passport (1).jpg';
 import resumeFile from './assets/resume.pdf';
 import Achievements from './components/sections/Achievements';
 //import profileImg from '../assets/profile.jpg';
+
+var fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] } },
+};
+
+var staggerItem = {
+  hidden: { opacity: 0, y: 24 },
+  visible: function (i) {
+    return {
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.08, duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] },
+    };
+  },
+};
+
 function App() {
   return (
     <div className="App">
@@ -18,13 +36,25 @@ function App() {
       <Home />
 
       {/* About Section */}
-      <section id="about" className="bg-white py-24">
+      <section id="about" className="bg-white py-14 sm:py-20 lg:py-24 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={fadeUp}
+            className="text-4xl font-bold text-center mb-10 sm:mb-12 lg:mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+          >
             About Me
-          </h2>
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <div className="space-y-8">
+          </motion.h2>
+          <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-start">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeUp}
+              className="space-y-8"
+            >
               <p className="text-lg text-slate-600 leading-relaxed">{profileData.bio}</p>
               <div>
                 <h3 className="text-xl font-semibold text-slate-800 mb-4">Languages</h3>
@@ -45,8 +75,14 @@ function App() {
                   <li>🎓 {profileData.collegeEmail}</li>
                 </ul>
               </div>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeUp}
+              transition={{ delay: 0.1 }}
+            >
               <h3 className="text-xl font-semibold text-slate-800 mb-6">Education</h3>
               <div className="space-y-6">
                 {profileData.education.map((edu, i) => (
@@ -63,20 +99,34 @@ function App() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-24">
+      <section id="projects" className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-14 sm:py-20 lg:py-24 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={fadeUp}
+            className="text-4xl font-bold text-center mb-10 sm:mb-12 lg:mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+          >
             My Projects
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {projectsData.map((project) => (
-              <div key={project.id} className="bg-white/80 backdrop-blur-sm border border-slate-200/60 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          </motion.h2>
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+            {projectsData.map((project, i) => (
+              <motion.div
+                key={project.id}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={staggerItem}
+                className="bg-white/80 backdrop-blur-sm border border-slate-200/60 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
                 <div className="flex items-start justify-between mb-4">
                   <span className="text-4xl">{project.emoji}</span>
                   <span className="text-xs font-semibold px-3 py-1 bg-blue-50 text-blue-700 rounded-full">{project.year}</span>
@@ -84,8 +134,8 @@ function App() {
                 <h3 className="text-xl font-bold text-slate-800 mb-3">{project.title}</h3>
                 <p className="text-slate-600 text-sm mb-5 leading-relaxed">{project.description}</p>
                 <ul className="space-y-2 mb-6">
-                  {project.highlights.map((h, i) => (
-                    <li key={i} className="flex gap-2 text-sm text-slate-600">
+                  {project.highlights.map((h, hi) => (
+                    <li key={hi} className="flex gap-2 text-sm text-slate-600">
                       <span className="text-blue-500 mt-0.5 shrink-0">▸</span>
                       <span>{h}</span>
                     </li>
@@ -98,51 +148,93 @@ function App() {
                     </span>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="bg-white py-24">
+      <section id="experience" className="bg-white py-14 sm:py-20 lg:py-24 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={fadeUp}
+            className="text-4xl font-bold text-center mb-10 sm:mb-12 lg:mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+          >
             Experience
-          </h2>
+          </motion.h2>
           <div className="max-w-3xl mx-auto space-y-8">
-            {experienceData.map((exp) => (
-              <div key={exp.id} className="relative pl-8 border-l-2 border-purple-200">
-                <span className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-gradient-to-br from-purple-500 to-blue-500"></span>
-                <div className="bg-gradient-to-br from-slate-50 to-purple-50/40 border border-slate-200/60 rounded-2xl p-6">
-                  <div className="flex items-start justify-between gap-4 mb-2">
-                    <div>
-                      <h3 className="text-lg font-bold text-slate-800">{exp.company}</h3>
-                      <p className="text-sm font-medium text-purple-600">{exp.role}</p>
+            {experienceData.map((exp, i) => {
+              var certHref = exp.certUrl
+                ? exp.certUrl
+                : exp.certFile
+                ? new URL('./assets/' + exp.certFile, import.meta.url).href
+                : null;
+
+              return (
+                <motion.div
+                  key={exp.id}
+                  custom={i}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={staggerItem}
+                  className="relative pl-8 border-l-2 border-purple-200"
+                >
+                  <span className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-gradient-to-br from-purple-500 to-blue-500"></span>
+                  <div className="bg-gradient-to-br from-slate-50 to-purple-50/40 border border-slate-200/60 rounded-2xl p-6">
+                    <div className="flex items-start justify-between gap-4 mb-2">
+                      <div>
+                        <h3 className="text-lg font-bold text-slate-800">{exp.company}</h3>
+                        <p className="text-sm font-medium text-purple-600">{exp.role}</p>
+                      </div>
+                      <span className="text-xs font-semibold px-3 py-1 bg-purple-50 text-purple-700 rounded-full whitespace-nowrap">{exp.year}</span>
                     </div>
-                    <span className="text-xs font-semibold px-3 py-1 bg-purple-50 text-purple-700 rounded-full whitespace-nowrap">{exp.year}</span>
+                    <ul className="mt-4 space-y-2">
+                      {exp.points.map((pt, pi) => (
+                        <li key={pi} className="flex gap-2 text-sm text-slate-600">
+                          <span className="text-purple-400 mt-0.5 shrink-0">▸</span>
+                          <span>{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {certHref && (
+                      <div className="mt-5 pt-4 border-t border-purple-100">
+                        <a
+                          href={certHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full text-white bg-gradient-to-r from-purple-500 to-blue-500 shadow-sm transition-transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-400"
+                        >
+                          View Certificate {'\u2197'}
+                        </a>
+                      </div>
+                    )}
                   </div>
-                  <ul className="mt-4 space-y-2">
-                    {exp.points.map((pt, i) => (
-                      <li key={i} className="flex gap-2 text-sm text-slate-600">
-                        <span className="text-purple-400 mt-0.5 shrink-0">▸</span>
-                        <span>{pt}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
+
       <Skills />
       <Certifications />
-       <Achievements />
+      <Achievements />
+
       {/* Contact Section */}
-      {/* Contact Section */}
-      <section id="contact" className="bg-white py-24">
-        <div className="max-w-3xl mx-auto px-6 sm:px-8 text-center">
+      <section id="contact" className="bg-white py-14 sm:py-20 lg:py-24 scroll-mt-24">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={fadeUp}
+          className="max-w-3xl mx-auto px-6 sm:px-8 text-center"
+        >
           <img
             src={contactPhoto}
             alt="Jamuna Rani C"
@@ -168,7 +260,7 @@ function App() {
               GitHub
             </a>
             <a
-            href={resumeFile}
+              href={resumeFile}
               download="Jamuna_Rani_C_Resume.pdf"
               className="inline-flex items-center gap-2 px-8 py-3.5 text-base font-semibold text-slate-700 bg-white border-2 border-slate-200 hover:border-slate-300 rounded-full shadow-md hover:shadow-lg transition-all duration-200"
             >
@@ -185,7 +277,7 @@ function App() {
             </span>
             <p className="text-sm text-green-700 font-medium">Available for opportunities</p>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <Footer />

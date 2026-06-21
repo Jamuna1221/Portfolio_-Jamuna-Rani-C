@@ -10,5 +10,6 @@ export const experienceData = [
       "Handled validation, exception handling, and backend logic.",
       "Collaborated on debugging and feature enhancements.",
     ],
+    certFile: "infosysinternship.pdf",
   },
 ];

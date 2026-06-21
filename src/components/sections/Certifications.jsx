@@ -209,7 +209,7 @@ function Certifications() {
   var uniqueIssuers = getUniqueIssuers(certificationsData);
 
   return (
-    <section id="certifications" className="relative bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-24 overflow-hidden">
+    <section id="certifications" className="relative bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/40 py-14 sm:py-20 lg:py-24 overflow-hidden scroll-mt-24">
       <div className="pointer-events-none absolute top-0 left-1/4 w-[28rem] h-[28rem] bg-blue-100/40 rounded-full blur-3xl"></div>
       <div className="pointer-events-none absolute bottom-0 right-1/4 w-[28rem] h-[28rem] bg-purple-100/40 rounded-full blur-3xl"></div>
       <div className="pointer-events-none absolute top-1/3 right-10 w-72 h-72 bg-emerald-100/30 rounded-full blur-3xl"></div>
@@ -221,7 +221,7 @@ function Certifications() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-10 sm:mb-12"
         >
           <h2 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 via-blue-600 to-emerald-600 bg-clip-text text-transparent mb-6">
             Certifications
