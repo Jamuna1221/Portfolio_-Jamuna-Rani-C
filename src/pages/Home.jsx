@@ -1,5 +1,5 @@
 import  { useState, useEffect } from 'react';
-
+import profileImg from '../assets/profile.jpeg';
 const Home = () => {
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
 
@@ -150,7 +150,7 @@ const Home = () => {
               {/* Your Image - No Frame, Blends with Background */}
               <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-[450px] lg:h-[500px]">
                 <img 
-                  src="/path-to-your-image.jpg" 
+                  src={profileImg} 
                   alt="Jamuna Rani C" 
                   className="w-full h-full object-cover object-center rounded-3xl shadow-2xl"
                 />

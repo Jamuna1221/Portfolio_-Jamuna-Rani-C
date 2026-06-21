@@ -16,7 +16,7 @@ export const profileData = {
       degree: "B.E. Computer Science and Engineering",
       institution: "National Engineering College, Kovilpatti",
       year: "2027",
-      score: "CGPA: 8.48 (Upto Fifth Semester)",
+      score: "CGPA: 8.50 (Upto Fifth Semester)",
     },
     {
       level: "Class XII",

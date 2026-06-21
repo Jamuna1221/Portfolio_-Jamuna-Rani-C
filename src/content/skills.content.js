@@ -1,7 +1,7 @@
 export const skillsData = {
-  programming: ["C", "C++", "Java", "SQL"],
-  web: ["HTML", "JavaScript", "React", "Node.js"],
-  tools: ["REST APIs", "Java Spring Boot", "MongoDB", "Express.js"],
+  languages: ["C", "C++", "Java", "SQL"],
+  frontend: ["HTML", "JavaScript", "React"],
+  backend: ["Node.js", "Express.js", "Java Spring Boot", "MongoDB", "REST APIs"],
 };
 
 export const certificationsData = [
