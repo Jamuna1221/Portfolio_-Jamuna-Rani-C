@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { certificationsData } from '../../content/skills.content';
-
+const certAssets = import.meta.glob('../../assets/**/*', { eager: true, as: 'url' });
 // Each issuer gets its own accent so the grid actually reads as colourful
 // instead of every card sharing the same blue/purple.
 var issuerMeta = {
@@ -74,7 +74,7 @@ function CertCard(props) {
   var cert = props.cert;
   var i = props.i;
   var meta = getIssuerMeta(cert);
-  var certUrl = new URL('../../assets/' + cert.file, import.meta.url).href;
+  var certUrl = certAssets['../../assets/' + cert.file] || '';
   var ref = useRef(null);
   var isImage = /\.(jpg|jpeg|png|gif|webp)$/i.test(cert.file);
 
