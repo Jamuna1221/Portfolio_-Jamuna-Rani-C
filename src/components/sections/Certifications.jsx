@@ -15,6 +15,7 @@ var issuerMeta = {
   default: { initials: 'CT', accent: '#475569', soft: '#F1F5F9' },
 };
 
+
 var cardVariants = {
   hidden: { opacity: 0, y: 30, scale: 0.95 },
   visible: function (i) {
