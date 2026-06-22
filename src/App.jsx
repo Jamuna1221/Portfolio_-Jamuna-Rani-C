@@ -147,7 +147,7 @@ function ExperienceTimeline(props) {
           var certHref = exp.certUrl
             ? exp.certUrl
             : exp.certFile
-            ? new URL('./assets/' + exp.certFile, import.meta.url).href
+            ? new URL('../../assets/' + exp.certFile, import.meta.url).href
             : null;
 
           return (
