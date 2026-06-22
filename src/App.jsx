@@ -14,7 +14,11 @@ import contactPhoto from './assets/passport (1).jpg';
 import resumeFile from './assets/resume.pdf';
 import Achievements from './components/sections/Achievements';
 //import profileImg from '../assets/profile.jpg';
-const expAssets = import.meta.glob('./assets/**/*', { eager: true, as: 'url' });
+const expAssets = import.meta.glob('./assets/**/*', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+});
 var fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] } },

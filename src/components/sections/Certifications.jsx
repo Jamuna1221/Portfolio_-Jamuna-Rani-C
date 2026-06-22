@@ -1,7 +1,11 @@
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { certificationsData } from '../../content/skills.content';
-const certAssets = import.meta.glob('../../assets/**/*', { eager: true, as: 'url' });
+const certAssets = import.meta.glob('../../assets/**/*', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+});
 // Each issuer gets its own accent so the grid actually reads as colourful
 // instead of every card sharing the same blue/purple.
 var issuerMeta = {
