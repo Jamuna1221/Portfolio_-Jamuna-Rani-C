@@ -17,4 +17,5 @@ export const certificationsData = [
   { name: "SNOWPRO ASSOCIATE: PLATFORM", issuer: "SnowFlake", file: "snowflake_certificate (1).pdf", issuerKey: "snowflake" },
   { name: "Network Addressing and Basic Troubleshooting", issuer: "Cisco Networking Academy", file: "Network_Addressing_and_Basic_Troubleshooting.pdf", issuerKey: "cisco" },
   { name: "MongoDBBasicsforStudents", issuer: "MongoDB", file: "MongoDBBasicsforStudents_Badge20250702-27-wgvbr0_page-0001 (1).jpg", issuerKey: "mongodb" },
+   { name: "AWS Certified Solution Architect Associate Certification", issuer: "GeeksForGeeks", file: "AWSCert.pdf", issuerKey: "AWS" },
 ];

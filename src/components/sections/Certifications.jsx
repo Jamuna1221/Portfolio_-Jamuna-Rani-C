@@ -16,6 +16,11 @@ var issuerMeta = {
   snowflake: { logo: 'https://cdn.simpleicons.org/snowflake/0EA5E9', accent: '#0EA5E9', soft: '#F0F9FF' },
   cisco: { logo: 'https://cdn.simpleicons.org/cisco/6D28D9', accent: '#6D28D9', soft: '#F5F3FF' },
   mongodb: { logo: 'https://cdn.simpleicons.org/mongodb/059669', accent: '#059669', soft: '#ECFDF5' },
+  AWS: {
+  logo: 'https://cdn.simpleicons.org/amazonaws/FF9900',
+  accent: '#FF9900',
+  soft: '#FFF7E6'
+},
   default: { initials: 'CT', accent: '#475569', soft: '#F1F5F9' },
 };
 
